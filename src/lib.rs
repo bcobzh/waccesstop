@@ -74,7 +74,7 @@ fn show_result(file_path: &str, mut ip_count: HashMap<&str, u32>, file_lines: u3
     count_vec.truncate(ip_nbr);
     print_head(file_path);
     for (ip, count) in count_vec.iter(){
-        println!("{:>16}\t{}\t\t{:.2}\u{2030}",ip, count,  *count as f64 * 100.0 / file_lines as f64);
+        println!("{:>16}\t{}\t\t{:.2}\u{0025}",ip, count,  *count as f64 * 100.0 / file_lines as f64);
     }
     print_footer(file_lines);
 
