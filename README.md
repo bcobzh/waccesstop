@@ -30,12 +30,12 @@ ARGS:
 
 Find the 5 top ip in access log between 12h00 and 16h59
 ```sh
-waccesstop  -r "2019:[1..6]" access.log -n 5
+waccesstop  -r "2019:1[2..6]" access.log -n 5
 ```
 
 Same think with awk but slower and not formated 
 ```sh 
- awk '/201.:1[1..6]/{IP[$1]++}END{for(ip in IP)print IP[ip]"\t"ip }' access.log | sort -rg | head -n5 
+ awk '/2019:1[2..6]/{IP[$1]++}END{for(ip in IP)print IP[ip]"\t"ip }' access.log | sort -rg | head -n5 
 ```
 ## tips : compile from workstation to other server
 
