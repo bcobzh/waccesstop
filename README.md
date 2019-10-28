@@ -26,9 +26,20 @@ ARGS:
     <INPUT>    the access log file, could be gz
 ``` 
 
+## exemples 
 
-## tips : compile from fedora to other gnu/linux
+Find the 5 top ip in access log between 12h00 and 16h59
+```sh
+waccesstop  -r "2019:[1..6]" access.log -n 5
+```
+
+Same think with awk but slower and not formated 
+```sh 
+ awk '/201.:1[1..6]/{IP[$1]++}END{for(ip in IP)print IP[ip]"\t"ip }' access.log | sort -rg | head -n5 
+```
+## tips : compile from workstation to other server
 
 ```sh
+rustup target  add x86_64-unknown-linux-musl
 cargo build --release --target=x86_64-unknown-linux-musl
 ```
