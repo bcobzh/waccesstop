@@ -1,0 +1,11 @@
+name: GitHub Actions Demo new2
+run-name: ${{ github.actor }} is testing out GitHub Actions new2 🚀
+on:
+  pull_request_target:
+    types: [opened, closed, synchronize, reopened]
+
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
