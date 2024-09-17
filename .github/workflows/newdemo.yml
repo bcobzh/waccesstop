@@ -3,6 +3,7 @@ run-name: ${{ github.actor }} is testing out GitHub Actions new2 🚀
 on:
   pull_request_target:
     types: [opened, closed, synchronize, reopened]
+    branches: [ master ]
 
 jobs:
   Explore-GitHub-Actions:
