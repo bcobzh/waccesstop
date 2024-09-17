@@ -1,13 +1,14 @@
 # waccesstop
 
-Little project to test rust language on apache/nginx access log file  
-I'm just starting rust  .... 
+Little project to test rust language on apache/nginx access log file
+I'm just starting rust  ....
 
+TEST
 
-## usage 
+## usage
 
 ```sh
-./target/release/waccesstop -h 
+./target/release/waccesstop -h
 waccesstop 0.1.0
 top ip in apache/nginx access logs
 
@@ -24,18 +25,18 @@ OPTIONS:
 
 ARGS:
     <INPUT>    the access log file, could be gz
-``` 
+```
 
-## exemples 
+## exemples
 
 Find the 5 top ip in access log between 12h00 and 16h59
 ```sh
 waccesstop  -r "2019:1[2..6]" access.log -n 5
 ```
 
-Same think with awk but slower and not formated 
-```sh 
- awk '/2019:1[2..6]/{IP[$1]++}END{for(ip in IP)print IP[ip]"\t"ip }' access.log | sort -rg | head -n5 
+Same think with awk but slower and not formated
+```sh
+ awk '/2019:1[2..6]/{IP[$1]++}END{for(ip in IP)print IP[ip]"\t"ip }' access.log | sort -rg | head -n5
 ```
 ## tips : compile from workstation to other server
 
