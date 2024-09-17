@@ -3,7 +3,6 @@
 Little project to test rust language on apache/nginx access log file
 I'm just starting rust  ....
 
-TEST
 
 ## usage
 
