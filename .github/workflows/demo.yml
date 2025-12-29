@@ -13,7 +13,7 @@ jobs:
       - name: Upload clever-cli for jobs
         uses: actions/upload-artifact@v4
         with:
-          name: clever-cli
+          name: clever_cli
           path: /usr/local/bin/clever
   deploy:
     name: deploy
@@ -22,7 +22,8 @@ jobs:
       - name: Download clever-cli from artifact
         uses: actions/download-artifact@v5
         with:
-          name: clever-cli
+          name: clever_cli
+          parth: /usr/local/bin/
       - name: check cli
         run: |
           ls -l /usr/local/bin/clever
