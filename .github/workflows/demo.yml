@@ -27,6 +27,7 @@ jobs:
           path: /usr/local/bin/
       - name: check cli
         run: |
+          chmod +x /usr/local/bin/clever
           ls -l /usr/local/bin/clever
           clever version
 
