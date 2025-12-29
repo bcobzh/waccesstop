@@ -8,13 +8,13 @@ jobs:
     steps:
       - name: Get Clever-Cli
         run: |
-          curl -s  https://clever-tools.clever-cloud.com/releases/latest/clever-tools-latest_linux.tar.gz -o /tmp/clever-tools-latest_linux.tar.gz
-          tar -xvf /tmp/clever-tools-latest_linux.tar.gz -C /usr/local/bin/  --strip-components=1
+          curl -s https://clever-tools.clever-cloud.com/releases/latest/clever-tools-latest_linux.tar.gz -o /tmp/clever-tools-latest_linux.tar.gz
+          tar -xvf /tmp/clever-tools-latest_linux.tar.gz -C /usr/local/bin/ --strip-components=1
       - name: Upload clever-cli for jobs
         uses: actions/upload-artifact@v4
         with:
           name: clever_cli
-          path: /usr/local/bin/clever
+          path: /usr/local/bin/
   deploy:
     name: deploy
     runs-on: ubuntu-latest
@@ -26,8 +26,6 @@ jobs:
           parth: /usr/local/bin/
       - name: check cli
         run: |
-          ls -l /usr/local/bin/clever
+          ls -l /usr/local/bin/
           clever version
-
-
 
