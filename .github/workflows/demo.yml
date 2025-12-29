@@ -2,7 +2,31 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  meta:
+    name: Meta
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - name: Get Clever-Cli
+        run: |
+          curl -s  https://clever-tools.clever-cloud.com/releases/latest/clever-tools-latest_linux.tar.gz -o /tmp/clever-tools-latest_linux.tar.gz
+          tar -xvf /tmp/clever-tools-latest_linux.tar.gz -C /usr/local/bin/  --strip-components=1
+      - name: Upload clever-cli for jobs
+        uses: actions/upload-artifact@v4
+        with:
+          name: clever-cli
+          path: /usr/local/bin/clever
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download clever-cli from artifact
+        uses: actions/download-artifact@v5
+        with:
+          name: clever-cli
+      - name: check cli
+        run: |
+          ls -l /usr/local/bin/clever
+          clever version
+
+
+
