@@ -17,6 +17,7 @@ jobs:
           path: /usr/local/bin/
   deploy:
     name: deploy
+    needs: [ "meta" ]
     runs-on: ubuntu-latest
     steps:
       - name: Download clever-cli from artifact
