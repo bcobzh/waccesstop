@@ -24,7 +24,7 @@ jobs:
         uses: actions/download-artifact@v5
         with:
           name: clever_cli
-          parth: /usr/local/bin/
+          path: /usr/local/bin/
       - name: check cli
         run: |
           ls -l /usr/local/bin/clever
