@@ -4,30 +4,27 @@ on: [push]
 jobs:
   meta:
     name: Meta
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      pull-requests: 'write'
+    outputs:
+      kc_secret: MYSECRET
+      kc_app_id: MYAPPID
+
     runs-on: ubuntu-latest
     steps:
-      - name: Get Clever-Cli
+      - name: swo env
         run: |
-          curl -s https://clever-tools.clever-cloud.com/releases/latest/clever-tools-latest_linux.tar.gz -o /tmp/clever-tools-latest_linux.tar.gz
-          tar -xvf /tmp/clever-tools-latest_linux.tar.gz -C /usr/local/bin/ --strip-components=1
-      - name: Upload clever-cli for jobs
-        uses: actions/upload-artifact@v4
-        with:
-          name: clever_cli
-          path: /usr/local/bin/clever
+          env
   deploy:
     name: deploy
     needs: [ "meta" ]
     runs-on: ubuntu-latest
     steps:
-      - name: Download clever-cli from artifact
-        uses: actions/download-artifact@v5
-        with:
-          name: clever_cli
-          path: /usr/local/bin/
-      - name: check cli
-        run: |
-          chmod +x /usr/local/bin/clever
-          ls -l /usr/local/bin/clever
-          clever version
+      - name: show env
+        run: 
+          env
+      - name: show remote
+        echo ${{ needs.meta.outputs }} 
 
