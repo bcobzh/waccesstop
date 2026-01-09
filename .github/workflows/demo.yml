@@ -27,5 +27,5 @@ jobs:
           env
       - name: show remote
         run: |
-          echo ${{ needs.meta.outputs }} 
+          echo '${{ toJSON(needs.meta.outputs) }}'  | jq
 
