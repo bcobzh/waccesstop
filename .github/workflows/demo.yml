@@ -23,8 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show env
-        run: 
+        run: |
           env
       - name: show remote
-        echo ${{ needs.meta.outputs }} 
+        run: |
+          echo ${{ needs.meta.outputs }} 
 
