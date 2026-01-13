@@ -25,6 +25,9 @@ jobs:
       - name: show env
         run: |
           env
+      - name: find
+        run: |
+          find /usr/lib/jvm/temurin-8-jdk-amd64
       - name: show remote
         run: |
           echo '${{ toJSON(needs.meta.outputs) }}'  | jq
