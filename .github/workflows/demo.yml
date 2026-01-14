@@ -25,9 +25,9 @@ jobs:
       - name: show env
         run: |
           env
-      - name: find
+      - name: install
         run: |
-          find $JAVA_HOME
+          sudo apt install maven s3cmd
       - name: show remote
         run: |
           echo '${{ toJSON(needs.meta.outputs) }}'  | jq
