@@ -22,12 +22,19 @@ jobs:
     needs: [ "meta" ]
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: show env
         run: |
-          env
+          ls 
       - name: install
         run: |
-          sudo apt install maven s3cmd
+          pwd
+          ls -l scripts
+          ./scripts/toto.sh
       - name: show remote
         run: |
           echo '${{ toJSON(needs.meta.outputs) }}'  | jq
