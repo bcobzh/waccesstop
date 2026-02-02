@@ -35,8 +35,8 @@ jobs:
           pwd
           ls -l scripts
           ./scripts/toto.sh
-          which lsftp
-          python3 ./scripts/demo.py
+          which lftp
+          python ./scripts/demo.py
       - name: show remote
         run: |
           echo '${{ toJSON(needs.meta.outputs) }}'  | jq

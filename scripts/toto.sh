@@ -1,5 +1,5 @@
 #!/bin/bash
 
 sudo apt install lftp 
-pip3 install invoke
+pip install invoke
 echo "dans le script" 
